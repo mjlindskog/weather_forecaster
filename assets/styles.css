@@ -3,3 +3,20 @@
   flex: wrap;
   justify-content: center;
 }
+
+.currentIcon {
+  max-height: 140px;
+  max-width: 1400px;
+}
+
+.goodUV {
+  color: chartreuse;
+}
+
+.mediumUV {
+  color: gold;
+}
+
+.badUV {
+  color: rgb(189, 0, 0);
+}
