@@ -64,6 +64,48 @@ searchBtn.click(function(event) {
             });
         });
 
+        // 5 day forecast
+        $.ajax({
+            url:forecastWeather,
+            method:"GET",
+        }).then(function(response) {
+            // list index must be in increments of 8 in order to cycle through each day
+            // 1st day call
+            var iconOne = `https://openweathermap.org/img/wn/${response.list[0].weather[0].icon}.png`;
+            $('#weatherIconOne').attr('src', iconOne);
+            $(".tOne").text('T: ' +Math.round(response.list[0].main.temp)+ '° F');
+            $(".wsOne").text('WS: ' +response.list[0].wind.speed+ 'mph');
+            $(".hOne").text('H: ' +response.list[0].main.humidity+ '%');
+
+            // 2nd day call
+            var iconTwo = `https://openweathermap.org/img/wn/${response.list[8].weather[0].icon}.png`;
+            $('#weatherIconTwo').attr('src', iconTwo);
+            $(".tTwo").text('T: ' +Math.round(response.list[8].main.temp)+ '° F');
+            $(".wsTwo").text('WS: ' +response.list[8].wind.speed+ 'mph');
+            $(".hTwo").text('H: ' +response.list[8].main.humidity+ '%');
+
+            // 3rd day call
+            var iconThree = `https://openweathermap.org/img/wn/${response.list[16].weather[0].icon}.png`;
+            $('#weatherIconThree').attr('src', iconThree);
+            $(".tThree").text('T: ' +Math.round(response.list[16].main.temp)+ '° F');
+            $(".wsThree").text('WS: ' +response.list[16].wind.speed+ 'mph');
+            $(".hThree").text('H: ' +response.list[16].main.humidity+ '%');
+
+            // 4th day call
+            var iconFour = `https://openweathermap.org/img/wn/${response.list[24].weather[0].icon}.png`;
+            $('#weatherIconFour').attr('src', iconFour);
+            $(".tFour").text('T: ' +Math.round(response.list[24].main.temp)+ '° F');
+            $(".wsFour").text('WS: ' +response.list[24].wind.speed+ 'mph');
+            $(".hFour").text('H: ' +response.list[24].main.humidity+ '%');
+
+            // 5th day call
+            var iconFive = `https://openweathermap.org/img/wn/${response.list[32].weather[0].icon}.png`;
+            $('#weatherIconFive').attr('src', iconFive);
+            $(".tFive").text('T: ' +Math.round(response.list[32].main.temp)+ '° F');
+            $(".wsFive").text('WS: ' +response.list[32].wind.speed+ 'mph');
+            $(".hFive").text('H: ' +response.list[32].main.humidity+ '%');
+        })
+
     };
     
     
