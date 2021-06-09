@@ -3,10 +3,10 @@ var searchBtn = $("#searchBtn");
 var date = moment();
 var currentDate = date.format("LLLL");
 var forecastOne = date.add(1, "day").format("l");
-var forecastTwo = date.add(2, "days").format("l");
-var forecastThree = date.add(3, "days").format("l");
-var forecastFour = date.add(4, "days").format("l");
-var forecastFive = date.add(5, "days").format("l");
+var forecastTwo = date.add(1, "day").format("l");
+var forecastThree = date.add(1, "day").format("l");
+var forecastFour = date.add(1, "day").format("l");
+var forecastFive = date.add(1, "day").format("l");
 
 
 $(document).ready(function() {
