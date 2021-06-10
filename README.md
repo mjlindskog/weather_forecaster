@@ -39,9 +39,9 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference - MDN was comm
 
 https://getbootstrap.com/docs/5.0/getting-started/introduction/ - helped with bootstrap components
 
-https://api.jquery.com/ - most referneced source of material
+https://api.jquery.com/ - first option for all jQuery inquires
 
-https://www.w3schools.com/jquery/default.asp
+https://www.w3schools.com/jquery/default.asp - commonly referenced
 
 https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide - helped with the README guidelines
 
