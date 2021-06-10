@@ -39,7 +39,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference - MDN was comm
 
 https://getbootstrap.com/docs/5.0/getting-started/introduction/ - helped with bootstrap components
 
-https://api.jquery.com/ - first option for all jQuery inquires
+https://api.jquery.com/ - first option for all jQuery inquiries
 
 https://www.w3schools.com/jquery/default.asp - commonly referenced
 
