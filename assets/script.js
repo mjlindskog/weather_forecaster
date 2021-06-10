@@ -1,4 +1,5 @@
 var searchBtn = $("#searchBtn");
+var stored = 0;
 // currrent & forecast dates to be used when page loads
 var date = moment();
 var currentDate = date.format("LLLL");
@@ -18,12 +19,24 @@ $(document).ready(function() {
     $(".weatherFour").text(forecastFour);
     $(".weatherFive").text(forecastFive);
 
-})
+    // recalls rpreviouss earched cities
+    for(var i=0; i<localStorage.length; i++) {
+        var previousCity = $(".list-group").addClass("list-group-item");
+        previousCity.append("<button>" + storedCities + "</button>").addClass("listBtn");
+        var storedCities = localStorage.getItem(i);
+        
+    };
+
+
+});
 
 // current weather and 5 day forcast should load
-searchBtn.click(function(event) {
+searchBtn.click(loadWeather);
+
+function loadWeather(event) {
     console.log("It's linked");
     event.preventDefault();
+
     var searchedCity = $("#searchBar").val().trim();
 
     var apiKey = "7211e2dd4d2c7c0bb475207d2efebac6";
@@ -38,6 +51,12 @@ searchBtn.click(function(event) {
             url:currentWeather,
             method:"GET",
         }).then(function (response){
+            // stores searched item as a list/button element
+            var previousCity = $(".list-group").addClass("list-group-item");
+            previousCity.append("<button>" + response.name + "</button>");
+            localStorage.setItem(stored, response.name);
+            stored = stored + 1;
+
             var iconsURL = `https://openweathermap.org/img/wn/${response.weather[0].icon}.png`;
             // current weather call
             $('.cityh2').text(response.name);
@@ -54,11 +73,11 @@ searchBtn.click(function(event) {
             }).then(function(response){
                 $('#currentUV').text('UV Index: ' +response.current.uvi );
                 var uvColor = parseInt(response.current.uvi);
-                if(uvColor <= 3) {
+                if(uvColor < 3) {
                     $('#currentUV').addClass("goodUV");
                 } else if(uvColor > 3 && uvColor < 8) {
                     $('#currentUV').addClass("mediumUV");
-                }else if(uvColor >= 8) {
+                }else if(uvColor > 8) {
                     $('#currentUV').addClass("badUV");
                 };
             });
@@ -104,14 +123,7 @@ searchBtn.click(function(event) {
             $(".tFive").text('T: ' +Math.round(response.list[32].main.temp)+ '° F');
             $(".wsFive").text('WS: ' +response.list[32].wind.speed+ 'mph');
             $(".hFive").text('H: ' +response.list[32].main.humidity+ '%');
-        })
-
+        });
     };
-    
-    
-});
-
-$.fn.retrieveLocal = function(){
-
-}
+};
 
